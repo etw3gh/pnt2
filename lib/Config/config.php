@@ -1,5 +1,4 @@
 <?php
-    // create table links (id int not null auto_increment, short varchar(10), full varchar(500), primary key(id)) engine=myisam CHARACTER SET utf8 COLLATE utf8_general_ci 
     ini_set('max_execution_time',0);
     ini_set('display_errors', '1');
     ini_set('error_reporting', NULL);
@@ -32,7 +31,7 @@
         require_once("./lib/Config/dbconfig.php");
 
     $config = array(
-                    "maxNameLength", 6,
+                    "MIN_NAME_LENGTH", 4,
                     "DB_NAME" => "YOUR_DB_NAME",
                     "DB_USER" => "YOUR_DB_USER",
                     "DB_PASS" => "YOUR_DB_PASS",
@@ -45,7 +44,8 @@
                     "SELECT_MAX_ID" => "insert into links () values()",
                     "SELECT_LONG_URL" => "select full from links where short='%s'",
                     "INSERT_SHORT_URL" => "insert into links (short, full) values('%s', '%s')",
-                    "UPDATE_SHORT_URL" => "update links set short='%s', full='%s' where id=%s"
+                    "UPDATE_SHORT_URL" => "update links set short='%s', full='%s' where id=%s",
+                    "INSTALLED_FILE" => "./lib/Install/installed", /* DO NOT REMOVE */
     			);
 
     multiDefine($config);

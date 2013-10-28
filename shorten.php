@@ -14,7 +14,7 @@
     $url = trim($_REQUEST['url']);
 
     if (!empty($url) && preg_match('|^https?://|', $url)) {
-        $hashids = new Hashids\Hashids('', 4);
+        $hashids = new Hashids\Hashids('', MIN_NAME_LENGTH);
 
         $url = $mysql->real_escape_string($url);
 

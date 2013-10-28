@@ -1,4 +1,14 @@
 <!DOCTYPE html>
+<?php
+    require_once("./lib/Config/config.php");
+
+    if (!file_exists(INSTALLED_FILE)) {
+        require_once("./lib/Install/install.php");
+
+        echo "Please reload to finish installation of pnt2</br>";
+        exit;
+    }
+?>
 <html lang="en-us">
 <head>
     <meta charset="utf-8">
