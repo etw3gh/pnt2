@@ -19,7 +19,7 @@
 
     // Attempts to make the CACHE_DIR
     // Could put this in the actual build but it helps test for file/dir creation permissions
-    if (!mkdir(CACHE_DIR)) {
+    if (!mkdir("./cache")) {
         die("Failed to create cache folder; Please check user permissions");
     }
 

@@ -8,5 +8,5 @@ Options All -Indexes
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteRule ^shorten/(.*)$ shorten.php?url=$1 [L]
-RewriteRule ^([0-9a-zA-Z]{1,6})$ redirect.php?url=$1 [L]
+RewriteRule ^([0-9a-zA-Z]{4,6})$ redirect.php?url=$1 [L]
 </IfModule>

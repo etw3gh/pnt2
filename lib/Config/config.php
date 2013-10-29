@@ -5,6 +5,7 @@
     date_default_timezone_set('America/Toronto');
 
     require_once("./lib/Hashids/Hashids.php");
+    require_once("./lib/Config/tracking.php");
 
     /**
     * Defines mutiple objects
@@ -37,7 +38,7 @@
                     "DB_PASS" => "YOUR_DB_PASS",
                     "DB_HOST" => "YOUR_DB_HOST",
                     "CACHE" => FALSE,
-                    "CACHE_DIR" => dirname(__FILE__) . '/cache/',
+                    "CACHE_DIR" => "./config/",
                     "CHECK" => FALSE,
                     "BASE_URL" => "http://" . $_SERVER['HTTP_HOST'] . "/",
                     "SELECT_URL_CHECK" => "select short from links where full='%s'",
