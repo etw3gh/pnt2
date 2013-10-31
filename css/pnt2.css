@@ -25,3 +25,10 @@ input:focus {
 .logo {
  margin-right: auto; margin-left: auto; font-family: verdana, sans-serif; color: #65A9D7; font-size: 130px; font-weight: bold; font-variant: small-caps; text-align: center; padding-left: 20px;
 }
+.github {
+ margin-right: auto; margin-left: auto; font-family: verdana, sans-serif; color: #65A9D7; font-size: 18px; font-weight: bold; font-variant: small-caps; text-align: center; padding-left: 20px;
+}
+.github a:link {color: #65A9D7; text-decoration:underline;}
+.github a:visited {color: #65A9D7; text-decoration:underline;}
+.github a:hover {color: #65A9D7; text-decoration:underline;}
+.github a:active {color: #65A9D7; text-decoration:underline;}

@@ -3,9 +3,7 @@
     require_once($_SERVER['DOCUMENT_ROOT'] . "/lib/Config/config.php");
 
     if (!file_exists(INSTALLED_FILE)) {
-        require_once("./lib/Install/install.php");
-
-        echo "Please reload to finish installation of pnt2</br>";
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/lib/Install/install.php");
         exit;
     }
 ?>
@@ -27,6 +25,7 @@
             <div class="button" id="btnShorten">Shorten URL</div>
         </form>
     </div>
+    <div class="github">View on GitHub <a href="http://pnt2.ca/ep2b">HERE</a></div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {

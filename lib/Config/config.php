@@ -1,7 +1,7 @@
 <?php
     ini_set('max_execution_time',0);
     ini_set('display_errors', '1');
-    ini_set('error_reporting', NULL);
+    ini_set('error_reporting', E_ALL);
     date_default_timezone_set('America/Toronto');
 
     require_once($_SERVER['DOCUMENT_ROOT'] . "/lib/Hashids/Hashids.php");
@@ -39,7 +39,7 @@
                     "DB_PASS" => "YOUR_DB_PASS",
                     "DB_HOST" => "YOUR_DB_HOST",
                     "CACHE" => FALSE,
-                    "CACHE_DIR" => "./config/",
+                    "CACHE_DIR" => $_SERVER['DOCUMENT_ROOT'] . "/lib/Cache/",
                     "CHECK" => FALSE,
                     "BASE_URL" => "http://" . $_SERVER['HTTP_HOST'] . "/",
                     "SELECT_URL_CHECK" => "select short from links where full='%s'",
