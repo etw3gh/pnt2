@@ -1,5 +1,5 @@
 <?php
-    require_once("./lib/Config/config.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/lib/Config/config.php");
 
     /**
      * Returns the DBs Max ID + 1 for hashing
@@ -42,5 +42,5 @@
         exit;
     }
 
-    echo "NULL";
+    echo "Not a valid URL";
 ?>

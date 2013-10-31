@@ -4,8 +4,7 @@
     ini_set('error_reporting', NULL);
     date_default_timezone_set('America/Toronto');
 
-    require_once("./lib/Hashids/Hashids.php");
-    require_once("./lib/Config/tracking.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/lib/Hashids/Hashids.php");
 
     /**
     * Defines mutiple objects
@@ -17,22 +16,24 @@
     function multiDefine($key, $value = FALSE) {
         if (is_null($key)) return FALSE;
 
-        if (is_array($key))
-            foreach ($key as $k => $v)
+        if (is_array($key)) {
+            foreach ($key as $k => $v) {
                 if (!defined($k)) define($k, $v);
-        else
+            }
+        } else {
             if (!defined($key)) define($key, $value);
+        }
 
         return TRUE;
     }
 
     // Dev DB Info
     // Can Ignore
-    if (file_exists("./lib/Config/dbconfig.php"))
-        require_once("./lib/Config/dbconfig.php");
+    if (file_exists($_SERVER['DOCUMENT_ROOT'] . "/lib/Config/dbconfig.php"))
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/lib/Config/dbconfig.php");
 
     $config = array(
-                    "MIN_NAME_LENGTH", 4,
+                    "MIN_NAME_LENGTH" => 4,
                     "DB_NAME" => "YOUR_DB_NAME",
                     "DB_USER" => "YOUR_DB_USER",
                     "DB_PASS" => "YOUR_DB_PASS",
@@ -46,7 +47,7 @@
                     "SELECT_LONG_URL" => "select full from links where short='%s'",
                     "INSERT_SHORT_URL" => "insert into links (short, full) values('%s', '%s')",
                     "UPDATE_SHORT_URL" => "update links set short='%s', full='%s' where id=%s",
-                    "INSTALLED_FILE" => "./lib/Install/installed", /* DO NOT REMOVE */
+                    "INSTALLED_FILE" => $_SERVER['DOCUMENT_ROOT'] . "/lib/Install/installed" /* DO NOT REMOVE */
     			);
 
     multiDefine($config);

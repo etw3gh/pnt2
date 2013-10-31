@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-    require_once("./lib/Config/config.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/lib/Config/config.php");
 
     if (!file_exists(INSTALLED_FILE)) {
         require_once("./lib/Install/install.php");
@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="css/pnt2.css" media="screen"/>
 </head>
 <body>
+    <?php require_once("./lib/Config/tracking.php"); ?>
     <div class="logo">pnt2.ca</div>
     <div class="row">
         <form id="frmShorten">
