@@ -12,26 +12,29 @@ Request
 -
     POST /api
     Accept: application/json
+    Content-Type: application/json
+    Content-Length: 91
 
-`{
-    "urls":
-    [
-        {"url":"http://google.ca"},
-        {"url":"http://pnt2.ca"},
-        {"url":"http://github.com"}
-    ]
-}`
+    {
+        "urls":
+        [
+            {"url":"http://google.ca"},
+            {"url":"http://pnt2.ca"},
+            {"url":"http://github.com"}
+        ]
+    }
 
 Response
 -
     HTTP/1.1 200 OK
     Content-Type: application/json
+    Content-Length: 110
 
-`{
-    "urls":
-    [
-        {"url":"http:\/\/pnt2.ca\/bq2d"},
-        {"url":"http:\/\/pnt2.ca\/el5a"},
-        {"url":"http:\/\/pnt2.ca\/erEd"}
-    ]
-}`
+    {
+        "urls":
+        [
+            {"url":"http:\/\/pnt2.ca\/bq2d"},
+            {"url":"http:\/\/pnt2.ca\/el5a"},
+            {"url":"http:\/\/pnt2.ca\/erEd"}
+        ]
+    }
