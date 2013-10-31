@@ -1,0 +1,6 @@
+DirectoryIndex api.php
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^(.*)$ api.php [L]
+</IfModule>
