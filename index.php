@@ -25,7 +25,7 @@
             <div class="button" id="btnShorten">Shorten URL</div>
         </form>
     </div>
-    <div class="github">View on GitHub <a href="http://pnt2.ca/ep2b">HERE</a></div>
+    <div class="github">View on GitHub <a href="http://pnt2.ca/bk5e">HERE</a></div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {

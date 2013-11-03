@@ -34,6 +34,7 @@
 
     $config = array(
                     "MIN_NAME_LENGTH" => 4,
+                    "HASH_SALT" = "",
                     "DB_NAME" => "YOUR_DB_NAME",
                     "DB_USER" => "YOUR_DB_USER",
                     "DB_PASS" => "YOUR_DB_PASS",

@@ -6,34 +6,35 @@ PHP based URL Shortener with REST API
 Try on-line @ [http://pnt2.ca](http://pnt2.ca).
 
 Usage
-=====
+=
 
-Request:
+Request
+-
+    POST /api
+    Accept: application/json
+    Content-Type: application/json
+    Content-Length: 91
 
-POST /api
+    {
+        "urls":
+        [
+            {"url":"http://google.ca"},
+            {"url":"http://pnt2.ca"},
+            {"url":"http://github.com"}
+        ]
+    }
 
-Accept: application/json
+Response
+-
+    HTTP/1.1 200 OK
+    Content-Type: application/json
+    Content-Length: 110
 
-{
-    "urls":
-    [
-        {"url":"http://google.ca"},
-        {"url":"http://pnt2.ca"},
-        {"url":"http://github.com"}
-    ]
-}
-
-Response:
-
-HTTP/1.1 200 OK
-
-Content-Type: application/json
-
-{
-    "urls":
-    [
-        {"url":"http:\/\/pnt2.ca\/bq2d"},
-        {"url":"http:\/\/pnt2.ca\/el5a"},
-        {"url":"http:\/\/pnt2.ca\/erEd"}
-    ]
-}
+    {
+        "urls":
+        [
+            {"url":"http:\/\/pnt2.ca\/bq2d"},
+            {"url":"http:\/\/pnt2.ca\/el5a"},
+            {"url":"http:\/\/pnt2.ca\/erEd"}
+        ]
+    }
