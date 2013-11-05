@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="css/pnt2.css" media="screen"/>
 </head>
 <body>
-    <?php require_once("./lib/Config/tracking.php"); ?>
+    <?php //require_once("./lib/Config/tracking.php"); ?>
     <div class="logo">pnt2.ca</div>
     <div class="row">
         <form id="frmShorten">

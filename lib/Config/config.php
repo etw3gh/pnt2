@@ -5,6 +5,7 @@
     date_default_timezone_set('America/Toronto');
 
     require_once($_SERVER['DOCUMENT_ROOT'] . "/lib/Hashids/Hashids.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/lib/ShortenURL/ShortenURL.php");
 
     /**
     * Defines mutiple objects
@@ -34,7 +35,7 @@
 
     $config = array(
                     "MIN_NAME_LENGTH" => 4,
-                    "HASH_SALT" = "",
+                    "HASH_SALT" => "",
                     "DB_NAME" => "YOUR_DB_NAME",
                     "DB_USER" => "YOUR_DB_USER",
                     "DB_PASS" => "YOUR_DB_PASS",
@@ -57,4 +58,6 @@
 
     if ($mysql->connect_errno)
         die("mysql connection error: " . $mysql->connect_error);
+
+    $shorten = new ShortenURL($mysql);
 ?>
