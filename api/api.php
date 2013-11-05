@@ -16,45 +16,19 @@
     $request = RestUtils::processRequest();
     $data = $request->getData();
 
-    if (!isset($data['urls'])) {
+    if ($request->getMethod() == "post" and !isset($data['urls'])) {
         RestUtils::sendResponse(400, json_encode('{"error":"Invalid JSON"}'), 'application/json');
-    }
-    //$data = json_decode('{"urls":[{"url":"nig"},{"url":"http://pnt2.ca/2"},{"url":"http://pnt2.ca/3"}]}',true);
+    } elseif ($request->getMethod() == "get") {
+        RestUtils::sendResponse(200, $shorten->url($data));
+    } else {
+        $return = array('urls' => array());
 
-    $return = array('urls' => array());
+        foreach ($data['urls'] as $urls) {
+            $url = $urls['url'];
 
-    foreach ($data['urls'] as $urls) {
-        $url = $urls['url'];
-
-        if (!empty($url) && preg_match('|^https?://|', $url)) {
-            $hashids = new Hashids\Hashids('', MIN_NAME_LENGTH);
-
-            $url = $mysql->real_escape_string($url);
-
-            if (CHECK) {
-                // verify that the page doesn't 404
-            }
-
-            $alreadyShort = $mysql->query(sprintf(SELECT_URL_CHECK, $url));
-
-            // Will return the already shortened URL
-            if ($alreadyShort->num_rows > 0) {
-                $short = $alreadyShort->fetch_assoc();
-                $return['urls'][] = array('url' => BASE_URL . $short['short']);
-            } else {
-                // Creates the id
-                $id = getMaxID($mysql);
-                // Encrypts the hash
-                $hash = $hashids->encrypt($id);
-                // Updates the table
-                $mysql->query(sprintf(UPDATE_SHORT_URL, $hash, $url, $id));
-
-                $return['urls'][] = array('url' => BASE_URL . $hash);
-            }
-        } else {
-            $return['urls'][] = array('url' => "Not a valid URL");
+            $return['urls'][] = $shorten->url($url);
         }
-    }
 
-    RestUtils::sendResponse(200, json_encode($return), 'application/json');
+        RestUtils::sendResponse(200, json_encode($return), 'application/json');
+    }
 ?>

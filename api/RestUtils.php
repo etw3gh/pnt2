@@ -6,6 +6,12 @@ class RestUtils {
         $reqData = array();
 
         switch ($reqMethod) {
+            case 'get':
+                $returnObject->setMethod($reqMethod);
+                $returnObject->setRequestVars($reqData);
+                $returnObject->setData(substr($_SERVER['REQUEST_URI'], 5));
+                return $returnObject;
+                break;
             case 'post':
                 $reqData = file_get_contents('php://input');
                 break;
