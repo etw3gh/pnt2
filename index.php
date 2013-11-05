@@ -17,7 +17,10 @@
     <link rel="stylesheet" href="css/pnt2.css" media="screen"/>
 </head>
 <body>
-    <?php //require_once("./lib/Config/tracking.php"); ?>
+    <?php
+        if (!file_exists($_SERVER['DOCUMENT_ROOT'] . "/lib/Config/tracking.php"))
+            include_once($_SERVER['DOCUMENT_ROOT'] . "/lib/Config/tracking.php"); 
+    ?>
     <div class="logo">pnt2.ca</div>
     <div class="row">
         <form id="frmShorten">
