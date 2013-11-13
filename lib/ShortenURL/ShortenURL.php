@@ -19,10 +19,14 @@ class ShortenURL {
     public static function url($u) {
         $url = trim($u);
 
-        if (!empty($url) && preg_match('/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/', $url)) {
+        if (!empty($url) && preg_match('/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?/', $url)) {
             $hashids = new Hashids\Hashids(HASH_SALT, MIN_NAME_LENGTH);
 
             $url = self::$mysql->real_escape_string($url);
+
+            if (preg_match('/^(https?:\/\/)/', $url) == FALSE) {
+                $url = "http://" . $url;
+            }
 
             if (CHECK) {
                 // verify that the page doesn't 404
