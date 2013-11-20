@@ -3,6 +3,8 @@
     require_once($_SERVER['DOCUMENT_ROOT'] . "/api/RestUtils.php");
     require_once($_SERVER['DOCUMENT_ROOT'] . "/api/RestRequest.php");
 
+    //curl -X POST -H "Content-Type: application/json" -d '{"urls":[{"url":"http://google.ca"},{"url":"http://pnt2.ca"},{"url":"http://github.com"}]}' http://pnt2.ca/api
+
     /**
      * Returns the DBs Max ID + 1 for hashing
      * @param  mysqli $c mysqli connection

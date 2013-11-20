@@ -16,7 +16,7 @@
     */
     function multiDefine($key, $value = FALSE) {
         if (is_null($key)) return FALSE;
-
+        
         if (is_array($key)) {
             foreach ($key as $k => $v) {
                 if (!defined($k)) define($k, $v);

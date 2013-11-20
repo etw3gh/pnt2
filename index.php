@@ -11,7 +11,8 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Pnt2</title>
+    <title>Pnt2.ca</title>
+    <meta name="description" content="URL Shortener">
 
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Karla:400,700">
     <link rel="stylesheet" href="css/pnt2.css" media="screen"/>
