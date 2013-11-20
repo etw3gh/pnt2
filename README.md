@@ -10,7 +10,7 @@ Usage
 
 Request
 -
-    POST /api
+    POST /api/
     Accept: application/json
     Content-Type: application/json
     Content-Length: 91
