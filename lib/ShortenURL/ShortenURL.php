@@ -19,7 +19,9 @@ class ShortenURL {
     public static function url($u) {
         $url = trim($u);
 
-        if (!empty($url) && preg_match('/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?/', $url)) {
+        if (!empty($url) && preg_match('/(pnt2\.ca)/', $url)) {
+            return "Cannot shorten Pnt2.ca links";
+        } else if (!empty($url) && preg_match('/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?/', $url)) {
             $hashids = new Hashids\Hashids(HASH_SALT, MIN_NAME_LENGTH);
 
             $url = self::$mysql->real_escape_string($url);
