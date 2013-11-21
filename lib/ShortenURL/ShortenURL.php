@@ -21,7 +21,7 @@ class ShortenURL {
 
         if (!empty($url) && preg_match('/(pnt2\.ca)/', $url)) {
             return "Cannot shorten Pnt2.ca links";
-        } else if (!empty($url) && preg_match('/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?/', $url)) {
+        } else if (!empty($url) && preg_match('/^(https?:\/\/)?([\da-zA-Z\.-]+)\.([a-zA-Z\.]{2,6})([\/\w \.-]*)*\/?/', $url)) {
             $hashids = new Hashids\Hashids(HASH_SALT, MIN_NAME_LENGTH);
 
             $url = self::$mysql->real_escape_string($url);
@@ -31,7 +31,15 @@ class ShortenURL {
             }
 
             if (CHECK) {
-                // verify that the page doesn't 404
+                $ch = curl_init($url);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                curl_exec($ch);
+                $httpResponse = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+                curl_close($ch);
+
+                //HTTP_CODE int(0) is returned for non-existant TLDs
+                if ($httpResponse == 404 or $httpResponse == 0)
+                    return sprintf("404 Error on %s", $url);
             }
 
             $alreadyShort = self::$mysql->query(sprintf(SELECT_URL_CHECK, $url));

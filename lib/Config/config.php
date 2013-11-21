@@ -42,7 +42,7 @@
                     "DB_HOST" => "YOUR_DB_HOST",
                     "CACHE" => FALSE,
                     "CACHE_DIR" => $_SERVER['DOCUMENT_ROOT'] . "/lib/Cache/",
-                    "CHECK" => FALSE,
+                    "CHECK" => TRUE,
                     "BASE_URL" => "http://" . $_SERVER['HTTP_HOST'] . "/",
                     "SELECT_URL_CHECK" => "select short from links where full='%s'",
                     "SELECT_MAX_ID" => "insert into links () values()",
