@@ -1,7 +1,7 @@
 PNT2
 ====
 
-PHP based URL Shortener with REST API
+PHP based URL Shortener with JSON RESTFUL API built on Slim Framework
 
 Try on-line @ [http://pnt2.ca](http://pnt2.ca).
 
@@ -10,7 +10,7 @@ Usage
 
 Request
 -
-    POST /api/
+    POST /api/shorten
     Accept: application/json
     Content-Type: application/json
     Content-Length: 91
@@ -28,13 +28,13 @@ Response
 -
     HTTP/1.1 200 OK
     Content-Type: application/json
-    Content-Length: 110
+    Content-Length: 93
 
     {
         "urls":
         [
-            {"url":"http:\/\/pnt2.ca\/bq2d"},
-            {"url":"http:\/\/pnt2.ca\/el5a"},
-            {"url":"http:\/\/pnt2.ca\/erEd"}
+        "http://pnt2.ca/enRe",
+        "Cannot shorten Pnt2.ca links",
+        "http://pnt2.ca/7yxw"
         ]
     }
