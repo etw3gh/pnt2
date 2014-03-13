@@ -32,3 +32,17 @@ input:focus {
 .github a:visited {color: #65A9D7; text-decoration:underline;}
 .github a:hover {color: #65A9D7; text-decoration:underline;}
 .github a:active {color: #65A9D7; text-decoration:underline;}
+.isa_error {
+    border: 1px solid;
+    margin: 10px 0px;
+    padding:15px 10px;
+    width: 495px;
+     margin-right: auto; margin-left: auto;
+    vertical-align: middle; text-align: center;
+    background-repeat: no-repeat;
+    background-position: 10px center;-moz-border-radius:.5em;
+    -webkit-border-radius:.5em;
+    border-radius:.5em;
+    color: #D8000C;
+    background-color: #FFBABA;
+}

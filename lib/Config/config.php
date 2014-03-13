@@ -5,7 +5,6 @@
     date_default_timezone_set('America/Toronto');
 
     require_once($_SERVER['DOCUMENT_ROOT'] . "/lib/Hashids/Hashids.php");
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/lib/ShortenURL/ShortenURL.php");
 
     /**
     * Defines mutiple objects
@@ -42,22 +41,13 @@
                     "DB_HOST" => "YOUR_DB_HOST",
                     "CACHE" => FALSE,
                     "CACHE_DIR" => $_SERVER['DOCUMENT_ROOT'] . "/lib/Cache/",
-                    "CHECK" => TRUE,
                     "BASE_URL" => "http://" . $_SERVER['HTTP_HOST'] . "/",
                     "SELECT_URL_CHECK" => "select short from links where full='%s'",
                     "SELECT_MAX_ID" => "insert into links () values()",
                     "SELECT_LONG_URL" => "select full from links where short='%s'",
                     "INSERT_SHORT_URL" => "insert into links (short, full) values('%s', '%s')",
                     "UPDATE_SHORT_URL" => "update links set short='%s', full='%s' where id=%s",
-                    "INSTALLED_FILE" => $_SERVER['DOCUMENT_ROOT'] . "/lib/Install/installed" /* DO NOT REMOVE */
     			);
 
     multiDefine($config);
-
-    $mysql = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-
-    if ($mysql->connect_errno)
-        die("mysql connection error: " . $mysql->connect_error);
-
-    $shorten = new ShortenURL($mysql);
 ?>
